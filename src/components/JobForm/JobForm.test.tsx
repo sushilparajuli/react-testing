@@ -58,4 +58,10 @@ describe("JobForm", () => {
     const inputWithValue = screen.getByDisplayValue("Sushil"); // input value
     expect(inputWithValue).toBeInTheDocument();
   });
+
+  test("render correctly with getByAltText", () => {
+    render(<JobForm />);
+    const imageElement = screen.getByAltText("a person with a laptop"); // img alt attribute
+    expect(imageElement).toBeInTheDocument();
+  });
 });
