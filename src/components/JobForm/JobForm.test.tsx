@@ -4,9 +4,7 @@ import { JobForm } from "./JobForm";
 describe("JobForm", () => {
   test("render correctly", () => {
     render(<JobForm />);
-    const nameElm = screen.getByRole("textbox", {
-      name: "Name",
-    });
+    const nameElm = screen.getByLabelText("Name"); // label text of the form element also we can use eg {selector: "input"} for conflicting labels
     expect(nameElm).toBeInTheDocument();
 
     const bioElm = screen.getByRole("textbox", {
@@ -25,6 +23,11 @@ describe("JobForm", () => {
 
     const termsElm = screen.getByRole("checkbox");
     expect(termsElm).toBeInTheDocument();
+
+    const termsElm2 = screen.getByLabelText(
+      "I agree to the terms and conditions"
+    ); // works well with wrapped label
+    expect(termsElm2).toBeInTheDocument();
 
     const submitElm = screen.getByRole("button");
     expect(submitElm).toBeInTheDocument();
