@@ -52,4 +52,10 @@ describe("JobForm", () => {
     const paragraphElement = screen.getByText("All fields are mandatory");
     expect(paragraphElement).toBeInTheDocument();
   });
+
+  test("render correctly with getByDisplayValue", () => {
+    render(<JobForm />);
+    const inputWithValue = screen.getByDisplayValue("Sushil"); // input value
+    expect(inputWithValue).toBeInTheDocument();
+  });
 });
