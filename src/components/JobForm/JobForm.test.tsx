@@ -70,4 +70,10 @@ describe("JobForm", () => {
     const spanWithTitle = screen.getByTitle("close"); // title attribute
     expect(spanWithTitle).toBeInTheDocument();
   });
+
+  test("render correctly with getByTestId", () => {
+    render(<JobForm />);
+    const divWithTestId = screen.getByTestId("custom-element"); // title attribute
+    expect(divWithTestId).toBeInTheDocument();
+  });
 });
