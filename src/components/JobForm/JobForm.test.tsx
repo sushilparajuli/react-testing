@@ -64,4 +64,10 @@ describe("JobForm", () => {
     const imageElement = screen.getByAltText("a person with a laptop"); // img alt attribute
     expect(imageElement).toBeInTheDocument();
   });
+
+  test("render correctly with getByTitle", () => {
+    render(<JobForm />);
+    const spanWithTitle = screen.getByTitle("close"); // title attribute
+    expect(spanWithTitle).toBeInTheDocument();
+  });
 });
