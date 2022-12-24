@@ -5,7 +5,7 @@ type GreetProps = {
 export default function Greet({ name, age }: GreetProps) {
   return (
     <div>
-      Greeting {name} and {age}
+      Greeting {name ? name : "Guest"} and {age}
     </div>
   );
 }
