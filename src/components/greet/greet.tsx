@@ -1,6 +1,11 @@
 type GreetProps = {
-  name: string;
+  name?: string;
+  age?: 30;
 };
-export default function Greet({ name }: GreetProps) {
-  return <div>Greeting {name}</div>;
+export default function Greet({ name, age }: GreetProps) {
+  return (
+    <div>
+      Greeting {name ? name : "Guest"} and {age}
+    </div>
+  );
 }
