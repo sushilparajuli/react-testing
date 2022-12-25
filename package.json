@@ -26,7 +26,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore . ",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
-    "coverage": "npm test -- --coverage --watchAll"
+    "coverage": "npm test -- --coverage --watchAll",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "msw": "^0.49.2",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.1",
+    "husky": "^8.0.0"
   }
 }
