@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { logRoles, render, screen } from "@testing-library/react";
+import user from "@testing-library/user-event";
 import { JobForm } from "./JobForm";
 
 describe("JobForm", () => {
@@ -75,5 +76,37 @@ describe("JobForm", () => {
     render(<JobForm />);
     const divWithTestId = screen.getByTestId("custom-element"); // title attribute
     expect(divWithTestId).toBeInTheDocument();
+  });
+
+  test("keyboard  clear api", async () => {
+    user.setup();
+    render(<JobForm />);
+    const bioElement = screen.getByRole("textbox", {
+      name: "Bio",
+    }); // title attribute
+    await user.clear(bioElement);
+    expect(bioElement).toHaveValue("");
+  });
+
+  test("keyboard selectionOptions api", async () => {
+    user.setup();
+    render(<JobForm />);
+    const selectOption = screen.getByRole("combobox", {
+      name: /job location/i,
+    }); // title attribute
+    const nepOption = screen.getByRole("option", { name: /Nepal/i });
+    await user.selectOptions(selectOption, "NP");
+    expect(nepOption.selected).toBe(true);
+  });
+
+  test("keyboard upload api", async () => {
+    user.setup();
+    render(<JobForm />);
+    const file = new File(["hello"], "hello.png", { type: "image/png" });
+    const inputFile = screen.getByLabelText(/upload file/i); // title attribute
+    await user.upload(inputFile, file);
+    expect(inputFile.files[0]).toBe(file);
+    expect(inputFile.files.item(0)).toBe(file);
+    expect(inputFile.files).toHaveLength(1);
   });
 });
