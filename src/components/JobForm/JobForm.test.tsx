@@ -29,6 +29,7 @@ describe("JobForm", () => {
 
     const submitElm = screen.getByRole("button");
     expect(submitElm).toBeInTheDocument();
+    expect(submitElm).toBeDisabled(); // expect(submitElm).not.toBeEnabled() without jest-dom eslint plugin works fine
   });
 
   test("render correctly with getByPlaceholderText", () => {
