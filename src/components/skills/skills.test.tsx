@@ -16,4 +16,18 @@ describe("Skills", () => {
     }); // return matching node or null if no elements, useful for asserting elements which are not present, throws error if more than one found
     expect(startLearningButton).not.toBeInTheDocument(); // as we passed 3 skills
   });
+
+  it("testing findBy", async () => {
+    render(<Skills skills={skills} />);
+    const startLearningButton = await screen.findByRole(
+      "button",
+      {
+        name: "Start learning",
+      },
+      {
+        timeout: 2000,
+      }
+    ); // Wait for 1000 ms which is default to render elements, best case for rendering components based on Promise. for timeout modification need to send config as third params
+    expect(startLearningButton).toBeInTheDocument(); // as we passed 3 skills
+  });
 });
