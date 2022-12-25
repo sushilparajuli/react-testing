@@ -66,8 +66,17 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest-dom": "^4.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
     "msw": "^0.49.2",
-    "prettier": "^2.8.1",
-    "husky": "^8.0.0"
+    "prettier": "^2.8.1"
+  },
+  "lint-staged": {
+    "*.{tx,tsx}": [
+      "eslint"
+    ],
+    "*.{tx,tsx,css,scss}": [
+      "prettier --write"
+    ]
   }
 }
