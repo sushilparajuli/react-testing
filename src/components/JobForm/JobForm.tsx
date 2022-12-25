@@ -20,7 +20,7 @@ export const JobForm = () => {
         </div>
         <div>
           <label htmlFor="bio">Bio</label>
-          <textarea id="bio" />
+          <textarea defaultValue="test" id="bio" />
         </div>
         <div>
           <label htmlFor="job-location">Job location</label>
@@ -29,9 +29,13 @@ export const JobForm = () => {
             <option value="US">United States</option>
             <option value="GB">United Kingdom</option>
             <option value="CA">Canada</option>
-            <option value="IN">Nepal</option>
+            <option value="NP">Nepal</option>
             <option value="AU">Australia</option>
           </select>
+        </div>
+        <div>
+          <label htmlFor="file-uploader">Upload filed</label>
+          <input id="file-uploader" type="file" />
         </div>
         <div>
           <label>
